@@ -12,7 +12,7 @@ FIXED_ORDER = [
     '김택현', '윤덕화', '노호성'
 ]
 
-FILE_PATH = 'https://drive.google.com/uc?export=download&id=1ePaxPBYuUOd9toPLTxa3FWKapuTWPJmr'
+FILE_PATH = 'https://drive.google.com/uc?export=download&id=1nB0o2BlZiKqDrMCIQ_uAGGaiYNxTR_AM'
 
 # @st.cache_data(ttl=600)
 def load_data(url):
