@@ -3,7 +3,7 @@ import pandas as pd
 
 # 1. 페이지 설정
 st.set_page_config(page_title="집계현황", layout="wide")
-st.title("📈 주식위임 집계현황")
+st.title("📈시간별집계")
 
 # 담당자 고정 순서
 FIXED_ORDER = [
@@ -92,25 +92,25 @@ try:
 
     st.dataframe(daily_final.style.format("{:,.0f}"), use_container_width=True)
 
-    # --- 섹션 2: 성과 요약 ---
-    st.divider()
-    st.subheader(f"🏆 {selected_date} 기준 인원별 누적 현황")
+    # # --- 섹션 2: 성과 요약 ---
+    # st.divider()
+    # st.subheader(f"🏆 {selected_date}누적 현황")
     
-    summary_comp = pd.DataFrame({
-        '당일 실적': pivot_for_cum.loc[selected_date],
-        '전체 누적 실적': cumulative_df.loc[selected_date]
-    }).sort_values(by='전체 누적 실적', ascending=False)
+    # summary_comp = pd.DataFrame({
+    #     '당일 실적': pivot_for_cum.loc[selected_date],
+    #     '전체 누적 실적': cumulative_df.loc[selected_date]
+    # }).sort_values(by='전체 누적 실적', ascending=False)
     
-    # 총 합계 행 추가
-    summary_total = pd.DataFrame({
-        '당일 실적': [total_today],
-        '전체 누적 실적': [total_cumulative]
-    }, index=['총 합계'])
-    summary_final = pd.concat([summary_comp, summary_total])
+    # # 총 합계 행 추가
+    # summary_total = pd.DataFrame({
+    #     '당일 실적': [total_today],
+    #     '전체 누적 실적': [total_cumulative]
+    # }, index=['총 합계'])
+    # summary_final = pd.concat([summary_comp, summary_total])
     
-    col_table, col_chart = st.columns([1, 1.2])
-    with col_table:
-        st.dataframe(summary_final.style.format("{:,.0f}"), use_container_width=True)
+    # col_table, col_chart = st.columns([1, 1.2])
+    # with col_table:
+    #     st.dataframe(summary_final.style.format("{:,.0f}"), use_container_width=True)
 
 
 except Exception as e:
