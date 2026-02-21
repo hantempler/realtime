@@ -14,7 +14,7 @@ FIXED_ORDER = [
 
 FILE_PATH = 'https://drive.google.com/uc?export=download&id=1ePaxPBYuUOd9toPLTxa3FWKapuTWPJmr'
 
-@st.cache_data(ttl=600)
+# @st.cache_data(ttl=600)
 def load_data(url):
     return pd.read_excel(url, engine='openpyxl')
 
